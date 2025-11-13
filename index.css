@@ -72,10 +72,11 @@ nav a:hover::after {
   padding: 5rem 1rem;
   background: #181818;
   width: 100%;
+  background: linear-gradient(135deg, #ffc300 20%, #000000 95%);
 }
 
 .introduzione h2 {
-  color: var(--main-color);
+  color: #5a189a;
   margin-bottom: 1rem;
 }
 
@@ -87,7 +88,7 @@ nav a:hover::after {
 
 .btn {
   display: inline-block;
-  background: var(--main-color);
+  background: #5a189a;
   color: #111;
   padding: 0.7rem 1.3rem;
   border-radius: 5px;
@@ -138,7 +139,8 @@ section h2 {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #3531ff;
-  padding: 5px;
+  margin: 5px;
+  padding: 7px;
 }
 .gallery figure:hover {
   transform: scale(1.03);
@@ -188,12 +190,11 @@ section h2 {
 
 .console-card {
   background: var(--bg-light);
-  border: 1px solid #333;
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #3531ff;
+  border: 5px solid #3a0ca3;
 }
 
 .console-card:hover {
@@ -219,12 +220,80 @@ section h2 {
 }
 
 /* EVENTI */
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #181818 0%, #0d0d0d 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(47, 224, 76, 0.15);
+}
+
 .event-list article {
   background: var(--bg-light);
-  border-left: 3px solid var(--main-color);
-  padding: 1rem;
-  margin-bottom: 1rem;
+  border-left: 4px solid var(--main-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: var(--text-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
+
+/* Effetto luce decorativo */
+.event-list article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(47, 224, 76, 0.15), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.8s ease;
+}
+
+.event-list article:hover::before {
+  left: 120%;
+}
+
+.event-list article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(47, 224, 76, 0.3);
+  border-color: #3eff63;
+}
+
+/* Titoli */
+.event-list h3 {
+  color: var(--main-color);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 8px rgba(47, 224, 76, 0.3);
+}
+
+/* Link */
+.event-list a {
+  display: inline-block;
+  color: #5a189a;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.event-list a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+/* Testo */
+.event-list p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
 /* --- SEZIONI ESPOSIZIONI CON IMMAGINI --- */
 .expo {
   margin-bottom: 3rem;
@@ -238,7 +307,7 @@ section h2 {
   background: var(--bg-light);
   padding: 1rem;
   border-radius: 10px;
-  border: 1px solid #333;
+  border: 2px solid #5a189a;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -252,7 +321,7 @@ section h2 {
   width: auto;
   object-fit: cover;
   border-radius: 8px;
-  border: 2px solid var(--main-color);
+  border: 2px solid blue;
 }
 
 .expo-img.left {
@@ -302,12 +371,12 @@ section h2 {
   object-fit: cover;
   border-radius: 8px;
   border: 2px solid var(--main-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .images-grid img:hover {
-  transform: scale(1.05);
+  border-color: #25b63f;
   box-shadow: 0 0 15px rgba(47, 224, 76, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* FOOTER */
@@ -389,5 +458,11 @@ footer {
 
   .expo-img {
     width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .event-list {
+    padding: 1rem;
+    grid-template-columns: 1fr;
   }
 }
