@@ -4,21 +4,21 @@ TizzzVerse - Il Museo del Videogioco
 
 ## Struttura del Progetto
 
-- `index.html`: La pagina principale del sito.
+- `index.html`
 
-- `index.css`: Il file CSS che contiene gli stili per il sito.
+- `index.css`
 
-- `img/`: Cartella contenente le immagini utilizzate nel sito.
+- `img/`
 
-- `README.md`: Questo file di documentazione.
+- `README.md`
 
-- `eventi.html`: Pagina dedicata agli eventi legati ai videogiochi.
+- `eventi.html`
 
-- `galleria.html`: Pagina dedicata alla galleria di immagini.
+- `galleria.html`
 
-- `esposizioni.html`: Pagina dedicata alle esposizioni di videogiochi.
+- `esposizioni.html`
 
-- `console.html`: Pagina con le informazioni di contatto.
+- `console.html`
 
 ## 🚀Descrizione delle Pagine
 
