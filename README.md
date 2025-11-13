@@ -85,3 +85,7 @@ Il sito per ciò che è e che rappresenta direi che è completo, tuttavia, conti
 
 - Linkedin: https://www.linkedin.com/in/andrea-zito-34785928a/
 - e-mail: andryzito01@gmail.com
+
+## Licenza
+
+Copyright(c) <2025> <Andrea Zito>
