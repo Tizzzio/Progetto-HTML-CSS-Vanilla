@@ -46,14 +46,24 @@ nav ul {
 }
 
 nav a {
+  position: relative;
   color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--main-color);
+  transition: width 0.3s ease;
+}
 
-nav a:hover,
-nav a.active {
-  color: var(--main-color);
+nav a:hover::after {
+  width: 100%;
 }
 
 /* introduzione (Home) */
@@ -82,14 +92,26 @@ nav a.active {
   padding: 0.7rem 1.3rem;
   border-radius: 5px;
   text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #25b63f;
+  transform: scale(1.05);
+}
+
+.btn:focus {
+  outline: 2px solid #ff0000;
+  outline-offset: 2px;
 }
 
 /* SEZIONI */
 main {
-  max-width: 1000px;
+  max-width: 90%;
+  width: 100%;
   margin: 2rem auto;
-  padding: 1px;
-  flex-grow: 2;
+  padding: 1rem;
+  flex-grow: 1;
 }
 
 section {
@@ -114,6 +136,13 @@ section h2 {
   border: 1px solid #333;
   border-radius: 8px;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #3531ff;
+  padding: 5px;
+}
+.gallery figure:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 0px 15px rgba(47, 224, 76, 0.4);
 }
 
 .gallery img {
@@ -128,18 +157,65 @@ section h2 {
   color: var(--text-light);
 }
 
-/* TIMELINE (Curiosità) */
-.timeline {
-  border-left: 2px solid var(--main-color);
-  padding-left: 1rem;
+/* SEZIONE CONSOLES */
+.intro-console {
+  text-align: center;
+  background: #181818;
+  padding: 3rem 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--main-color);
 }
 
-.timeline article {
+.intro-console h2 {
+  color: var(--main-color);
+  font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
-.timeline h3 {
+.intro-console p {
+  color: var(--text-light);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* GRIGLIA DELLE CONSOLE */
+.console-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.console-card {
+  background: var(--bg-light);
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #3531ff;
+}
+
+.console-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0, 255, 55, 0.4);
+}
+
+.console-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.console-card h3 {
   color: var(--main-color);
+  margin: 0.8rem 0 0.3rem;
+}
+
+.console-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  padding: 0 0.8rem 1rem;
 }
 
 /* EVENTI */
@@ -148,6 +224,70 @@ section h2 {
   border-left: 3px solid var(--main-color);
   padding: 1rem;
   margin-bottom: 1rem;
+}
+/* --- SEZIONI ESPOSIZIONI CON IMMAGINI --- */
+.expo {
+  margin-bottom: 3rem;
+}
+
+.expo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: var(--bg-light);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expo-content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(47, 224, 76, 0.3);
+}
+
+/* Immagini */
+.expo-img {
+  width: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--main-color);
+}
+
+.expo-img.left {
+  order: 0;
+}
+
+.expo-img.right {
+  order: 1;
+}
+
+/* Testo */
+.expo-text {
+  flex: 1;
+}
+
+.expo-text h2 {
+  color: var(--main-color);
+  margin-bottom: 0.5rem;
+}
+
+.expo-text p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .expo-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .expo-img {
+    width: 100%;
+  }
 }
 
 /* FOOTER */
@@ -173,5 +313,44 @@ footer {
 
   .introduzione {
     padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+
+  footer {
+    padding: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  .expo-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .expo-img {
+    width: 100%;
+    height: auto;
   }
 }
